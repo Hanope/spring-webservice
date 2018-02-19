@@ -11,7 +11,7 @@ public class User {
   @GeneratedValue
   private Long id;
 
-  @Column(nullable = false, length = 20)
+  @Column(nullable = false, length = 20, unique = true)
   private String userId;
 
   private String password;
@@ -36,6 +36,10 @@ public class User {
 
   public String getPassword() {
     return password;
+  }
+
+  public Long getId() {
+    return id;
   }
 
   @Override
