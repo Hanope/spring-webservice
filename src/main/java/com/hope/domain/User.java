@@ -34,6 +34,10 @@ public class User {
     this.email = email;
   }
 
+  public String getPassword() {
+    return password;
+  }
+
   @Override
   public String toString() {
     return "User{" +
