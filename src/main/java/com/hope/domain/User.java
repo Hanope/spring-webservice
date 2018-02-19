@@ -7,6 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class User {
+
   @Id
   @GeneratedValue
   private Long id;
@@ -34,12 +35,16 @@ public class User {
     this.email = email;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
   public Long getId() {
     return id;
+  }
+
+  public boolean matchPassword(String newPassword) {
+    if (newPassword == null) {
+      return false;
+    }
+
+    return newPassword.equals(password);
   }
 
   @Override
