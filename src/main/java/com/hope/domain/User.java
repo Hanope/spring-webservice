@@ -9,12 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class User {
-
-  @Id
-  @GeneratedValue
-  @JsonProperty
-  private Long id;
+public class User extends AbstractEntity {
 
   @Column(nullable = false, length = 20, unique = true)
   @JsonProperty
@@ -45,10 +40,6 @@ public class User {
     this.email = email;
   }
 
-  public Long getId() {
-    return id;
-  }
-
   public String getUserId() {
     return userId;
   }
@@ -75,23 +66,5 @@ public class User {
     this.password = newUser.password;
     this.name = newUser.name;
     this.email = newUser.email;
-  }
-
-  @Override
-  public boolean equals(Object o) {
-    if (this == o) {
-      return true;
-    }
-    if (o == null || getClass() != o.getClass()) {
-      return false;
-    }
-    User user = (User) o;
-    return Objects.equals(id, user.id);
-  }
-
-  @Override
-  public int hashCode() {
-
-    return Objects.hash(id);
   }
 }
