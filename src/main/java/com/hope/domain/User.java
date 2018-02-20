@@ -39,6 +39,10 @@ public class User {
     return id;
   }
 
+  public String getUserId() {
+    return userId;
+  }
+
   public boolean matchPassword(String newPassword) {
     if (newPassword == null) {
       return false;
